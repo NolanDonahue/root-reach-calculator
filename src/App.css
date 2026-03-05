@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.MuiToggleButtonGroup-root {
+  justify-content: center;
+  border-color: #282c34;
+}
+.MuiStack-root {
+  justify-content: center;
+  padding-top: 1rem;
+  h4 {
+    line-height: 0;
+  }
+}
+div.container {
+  background-color: rgb(234, 234, 236);
+  padding: .7rem;
+  border-radius: 1rem;  
+  margin: .2rem;
+}
