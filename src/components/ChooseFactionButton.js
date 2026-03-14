@@ -13,7 +13,7 @@ const getFactionButtonColor = (faction) => {
     }
 }
 
-export const ChooseFactionButton = ({faction, handleFactionClick}) => {
+export const ChooseFactionButton = ({faction, handleFactionClick, disableFaction}) => {
     const widthAndHeight = faction.status === IS_NOT_AVAILABLE ? "4em" : "7em"
     const badgeTopAndRight = faction.status === IS_NOT_AVAILABLE ? "0.5em" : "1em"
     const badgeFontSize = faction.status === IS_NOT_AVAILABLE ? "small" : "large";
@@ -29,26 +29,16 @@ export const ChooseFactionButton = ({faction, handleFactionClick}) => {
         >
             <Badge
                 badgeContent={
-                    <Avatar
-                        sx={{width: "2em", height: "2em", fontSize: badgeFontSize, backgroundColor: fabColor}}
-                    >
+                    <Avatar sx={{width: "2em", height: "2em", fontSize: badgeFontSize, backgroundColor: fabColor}}>
                         {faction.reach}
                     </Avatar>
                 }
-                sx={
-                    {
-                        "& .MuiBadge-badge": {
-                            top: badgeTopAndRight,
-                            right: badgeTopAndRight,
-                        },
-                        width: "100%",
-                        height: "100%",
-                        alignItems: "center",
-                        justifyContent: "center"
-                    }
-                }
+                sx={{
+                    "& .MuiBadge-badge": { top: badgeTopAndRight, right: badgeTopAndRight },
+                    width: "100%", height: "100%", alignItems: "center", justifyContent: "center"
+                }}
             >
-                <FactionStatusOverlay status={faction.status}/>
+                <FactionStatusOverlay status={faction.status} disableFaction={disableFaction} />
                 <Avatar
                     sx={{width: "90%", height: "90%"}}
                     imgProps={{sx: {objectFit: "contain"}}}
